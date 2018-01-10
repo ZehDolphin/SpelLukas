@@ -35,5 +35,37 @@ public class Rectangle extends Point {
 	}
 	
 	
+	
+	public boolean contains(float x, float y) {
+		return (getX() <= x &&
+				getY() <= y &&
+				getX() + getWidth() >= x &&
+				getY() + getHeight() >= y);
+	}
+
+	public boolean contains(Point p) {
+		return contains(p.getX(), p.getY());
+	}
+	
+	public boolean contains(Rectangle r) {
+		return 	contains(r.getX(), r.getY()) &&
+				contains(r.getX() + r.getWidth(), r.getY()) &&
+				contains(r.getX() + r.getWidth(), r.getY() + r.getHeight()) &&
+				contains(r.getX(), r.getY() + r.getHeight());
+	}
+	
+	public boolean intersects(Rectangle r) {
+		return 	contains(r.getX(), r.getY()) ||
+				contains(r.getX() + r.getWidth(), r.getY()) ||
+				contains(r.getX() + r.getWidth(), r.getY() + r.getHeight()) ||
+				contains(r.getX(), r.getY() + r.getHeight());
+	}
+	
+	public boolean intersects(float x, float y, float w, float h) {
+		return 	contains(x, y) ||
+				contains(x + w, y) ||
+				contains(x + w, y + h) ||
+				contains(x, y + h);
+	}
 
 }

@@ -43,6 +43,8 @@ public class Window {
 
 		frame.addKeyListener(new Keyboard());
 
+		frame.setAlwaysOnTop(true);
+		
 		frame.setVisible(true);
 
 	}

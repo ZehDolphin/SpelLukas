@@ -16,19 +16,16 @@ public class Keyboard implements KeyListener {
 	
 	@Override
 	public void keyTyped(KeyEvent e) {
-		System.out.println("Key typed: " + e.getKeyCode());
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		keys[e.getKeyCode()] = true;
-		System.out.println("Key press: " + e.getKeyCode());
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
 		keys[e.getKeyCode()] = false;
-		System.out.println("Key release: " + e.getKeyCode());
 	}
 
 }
